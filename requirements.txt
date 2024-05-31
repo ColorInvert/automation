@@ -1,0 +1,8 @@
+iniconfig==2.0.0
+markdown-it-py==2.2.0
+mdurl==0.1.2
+packaging==24.0
+pluggy==1.5.0
+Pygments==2.15.1
+pytest==8.2.1
+rich==13.3.5
