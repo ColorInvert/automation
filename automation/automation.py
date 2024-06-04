@@ -129,11 +129,9 @@ def find_move_regex(regex, location, target):
 # Functions
 
 
-#! FUNCTIONAL, DON'T TOUCH
 # Option 1, create new folder
 def create_folder(name, location):
 
-    console.print(f"name given was {name}, location given was {location}")
     # Check if input location exists, and exit function if not
     try:
         os.listdir(location)
@@ -150,7 +148,6 @@ def create_folder(name, location):
         console.print(f"[red]{error}[/red]")
 
 
-#! FUNCTIONAL, DON'T TOUCH
 # Option 2 Delete user folder (does not actually delete, but moves to temp)
 def delete_user(name, location):
 
@@ -171,7 +168,6 @@ def delete_user(name, location):
         )
 
 
-#! FUNCTIONAL, DON'T TOUCH
 # Option 3 Sort files by type
 def sort_by_type(location):
 
@@ -201,10 +197,8 @@ def parse_logs(location):
 
     # Collect warning log entries
     log_entries.extend(file_regex_find(warning_regex, location, logfile_regex))
-    console.print(f"Our warning log list looks like {log_entries}")
 
     string = f"\n".join(log_entries)
-    console.print(f"string looks like {string}")
 
     # Write to warnings.log file in current directory.
     with open("warnings.log", "w") as file:
@@ -215,10 +209,8 @@ def parse_logs(location):
 
     # Collect error log entries
     log_entries = file_regex_find(error_regex, location, logfile_regex)
-    console.print(f"Our error log list now looks like {log_entries}")
 
     string = f"\n".join(log_entries)
-    console.print(f"string looks like {string}")
 
     # Write to errors.log file in current directory.
     with open("errors.log", "w") as file:
@@ -228,10 +220,8 @@ def parse_logs(location):
     find_move("errors.log", ".", location)
 
 
-#! FUNCTIONAL, DON'T TOUCH
 # Option 5 Count number of files with extension in directory
 def count_files(extension, location):
-    console.print(f"location given was {location}")
     # Convert string input into regex
     regex = re.compile(extension)
 
@@ -270,7 +260,6 @@ if __name__ == "__main__":
 
         choice = Prompt.ask("Select an option", choices=["1", "2", "3", "4", "5", "6"])
 
-        #! FUNCTIONAL, DON'T TOUCH
         # Option 1, create new folder
         if choice == "1":
             name = Prompt.ask(
@@ -281,7 +270,6 @@ if __name__ == "__main__":
             )
             create_folder(name, location)
 
-        #! FUNCTIONAL, DON'T TOUCH
         # Option 2 Delete user folder (does not actually delete, but moves to temp)
         elif choice == "2":
 
@@ -294,7 +282,6 @@ if __name__ == "__main__":
             )
             delete_user(name, location)
 
-        #! FUNCTIONAL, DON'T TOUCH
         # Option 3 Sort files by type
         elif choice == "3":
             location = Prompt.ask(
@@ -309,7 +296,6 @@ if __name__ == "__main__":
             )
             parse_logs(directory)
 
-        #! FUNCTIONAL, DON'T TOUCH
         # Option 5 Count number of files in directory
         elif choice == "5":
             extension = Prompt.ask(
